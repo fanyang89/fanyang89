@@ -6,4 +6,4 @@ I'm a software engineer focused on consensus and storage.
 - Maintaining ZooKeeper fork at [SmartX](https://www.smartx.com/global)
 - Wrote the first line for [IOMesh](https://iomesh.com)
 
-Visit my blog [here](https://fanyang.vercel.app)
+Visit my blog [here](https://fuis.me)

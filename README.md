@@ -7,3 +7,5 @@ I'm a software engineer focused on consensus and storage.
 - Wrote the first line for [IOMesh](https://iomesh.com)
 
 Welcome to [my blog](https://fuis.me)
+
+[![fanyang's GitHub stats](https://github-readme-stats.vercel.app/api?username=fanyang89)](https://github.com/anuraghazra/github-readme-stats)

@@ -7,6 +7,6 @@ I'm a software engineer focused on consensus and AI oriented storage.
 - Wrote the first line for [IOMesh](https://iomesh.com)
 - Create a dozen of tools for my own
 
-Welcome to [my blog](https://fuis.me)
+Welcome to [my blog](https://fuis.top)
 
-[![fanyang's GitHub stats](https://github-readme-stats.vercel.app/api?username=fanyang89)](https://github.com/anuraghazra/github-readme-stats)
+[![GitHub stats](https://github-readme-stats-fanyang.vercel.app/api?username=fanyang89)](https://github.com/anuraghazra/github-readme-stats)

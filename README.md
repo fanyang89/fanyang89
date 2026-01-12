@@ -9,4 +9,5 @@ I'm a software engineer focused on consensus and AI oriented storage.
 
 Welcome to [my blog](https://fuis.top)
 
-[![GitHub stats](https://github-readme-stats-fanyang.vercel.app/api?username=fanyang89)](https://github.com/anuraghazra/github-readme-stats)
+[![GitHub stats](https://github-readme-stats-nine-zeta-80.vercel.app/api?username=fanyang89)](https://github.com/anuraghazra/github-readme-stats)
+

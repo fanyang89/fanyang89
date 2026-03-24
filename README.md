@@ -1,10 +1,9 @@
 ### Hi there 👋
 
-I'm a software engineer focused on consensus and AI oriented storage.
+I'm a software engineer focused on consensus
 
 - Maintaining [ZBS](https://www.smartx.com/global/smtx-os) consensus/metadata modules
 - Maintaining ZooKeeper fork at [SmartX](https://www.smartx.com/global)
-- Create a dozen of tools for my own
 
 Welcome to [my blog](https://fuis.top)
 

@@ -6,9 +6,6 @@ on:
       - main
     paths-ignore:
       - README.md
-  schedule:
-    # Runs every first and 12 hrs.
-    - cron: '0 */12 * * *'
   workflow_dispatch:
 
 permissions:

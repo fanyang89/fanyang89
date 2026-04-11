@@ -1,0 +1,6 @@
+settings:
+  username: "fanyang89"
+  commit_msg: "Update README with the recent activity"
+  readme_file: "./README.md"
+  disabled_events:
+    - "comments"

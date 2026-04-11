@@ -43,9 +43,14 @@ jobs:
             })
 
             const pullRequests = response.data.items
-            const escapeTitle = (title) => title.replace(/[\[\]]/g, '\\$&')
+            const escapeTitle = (title) => title.replace(/[\\\[\]]/g, '\\$&')
             const content = pullRequests.length
-              ? pullRequests.map((pr) => `- [${escapeTitle(pr.title)}](${pr.html_url})`).join('\n')
+              ? pullRequests
+                  .map((pr) => {
+                    const repo = pr.repository_url.replace('https://api.github.com/repos/', '')
+                    return `- 🔀 ${repo}#${pr.number}: [${escapeTitle(pr.title)}](${pr.html_url})`
+                  })
+                  .join('\n')
               : '- No merged pull requests found.'
 
             const readme = fs.readFileSync(readmePath, 'utf8')

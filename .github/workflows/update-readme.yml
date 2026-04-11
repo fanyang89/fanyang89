@@ -1,10 +1,16 @@
 name: Update README
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # Runs every first and 12 hrs.
     - cron: '0 */12 * * *'
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   activity:
@@ -13,9 +19,15 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Add activity to readme
-        uses: Readme-Workflows/recent-activity@v2.4.1
+        uses: jamesgeorge007/github-activity-readme@v0.5.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          GH_USERNAME: fanyang89
+          COMMIT_MSG: "docs(readme): update recent activity"
+          MAX_LINES: 20
+          FILTER_EVENTS: PullRequestEvent
+          TARGET_FILE: README.md

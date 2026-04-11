@@ -11,8 +11,6 @@ Welcome to [my blog](https://fuis.top)
 
 ## Recent Merged Pull Requests
 
-Grouped by repository, with up to 10 repos and 5 merged pull requests per repo.
-
 <!--START_SECTION:activity-->
 ### fanyang89/bpftrace-formatter
 - 🔀 [#38 Refactor: improve code maintainability and reduce duplication](https://github.com/fanyang89/bpftrace-formatter/pull/38)

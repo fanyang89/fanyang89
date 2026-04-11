@@ -34,23 +34,65 @@ jobs:
             const readmePath = 'README.md'
             const startMarker = '<!--START_SECTION:activity-->'
             const endMarker = '<!--END_SECTION:activity-->'
+            const maxRepos = 10
+            const maxPullRequestsPerRepo = 5
 
-            const response = await github.rest.search.issuesAndPullRequests({
-              q: `author:${username} is:pr is:merged`,
-              sort: 'updated',
-              order: 'desc',
-              per_page: 20,
+            const query = `
+              query RecentMergedPullRequests($query: String!) {
+                search(query: $query, type: ISSUE, first: 100) {
+                  nodes {
+                    ... on PullRequest {
+                      title
+                      number
+                      url
+                      mergedAt
+                      repository {
+                        nameWithOwner
+                        isPrivate
+                      }
+                    }
+                  }
+                }
+              }
+            `
+
+            const response = await github.graphql(query, {
+              query: `author:${username} is:pr is:merged sort:updated-desc`,
             })
 
-            const pullRequests = response.data.items
+            const pullRequests = response.search.nodes
+              .filter((pr) => pr && pr.mergedAt && pr.repository && !pr.repository.isPrivate)
+              .sort((left, right) => new Date(right.mergedAt) - new Date(left.mergedAt))
+
             const escapeTitle = (title) => title.replace(/[\\\[\]]/g, '\\$&')
-            const content = pullRequests.length
-              ? pullRequests
-                  .map((pr) => {
-                    const repo = pr.repository_url.replace('https://api.github.com/repos/', '')
-                    return `- 🔀 ${repo}#${pr.number}: [${escapeTitle(pr.title)}](${pr.html_url})`
+            const groupedPullRequests = new Map()
+
+            for (const pr of pullRequests) {
+              const repo = pr.repository.nameWithOwner
+
+              if (!groupedPullRequests.has(repo)) {
+                if (groupedPullRequests.size === maxRepos) {
+                  continue
+                }
+
+                groupedPullRequests.set(repo, [])
+              }
+
+              const repoPullRequests = groupedPullRequests.get(repo)
+              if (repoPullRequests.length < maxPullRequestsPerRepo) {
+                repoPullRequests.push(pr)
+              }
+            }
+
+            const content = groupedPullRequests.size
+              ? Array.from(groupedPullRequests.entries())
+                  .map(([repo, prs]) => {
+                    const lines = prs
+                      .map((pr) => `- 🔀 [#${pr.number} ${escapeTitle(pr.title)}](${pr.url})`)
+                      .join('\n')
+                    return `### ${repo}\n${lines}`
                   })
-                  .join('\n')
+                  .join('\n\n')
               : '- No merged pull requests found.'
 
             const readme = fs.readFileSync(readmePath, 'utf8')

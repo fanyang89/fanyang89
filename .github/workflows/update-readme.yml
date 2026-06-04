@@ -35,8 +35,8 @@ jobs:
             const maxPullRequestsPerRepo = 5
 
             const query = `
-              query RecentMergedPullRequests($query: String!) {
-                search(query: $query, type: ISSUE, first: 100) {
+              query RecentMergedPullRequests($searchQuery: String!) {
+                search(query: $searchQuery, type: ISSUE, first: 100) {
                   nodes {
                     ... on PullRequest {
                       title
@@ -54,7 +54,7 @@ jobs:
             `
 
             const response = await github.graphql(query, {
-              query: `author:${username} is:pr is:merged sort:updated-desc`,
+              searchQuery: `author:${username} is:pr is:merged sort:updated-desc`,
             })
 
             const pullRequests = response.search.nodes

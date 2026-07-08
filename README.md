@@ -12,12 +12,15 @@ Welcome to [my blog](https://fuis.top)
 ## Recent Merged Pull Requests
 
 <!--START_SECTION:activity-->
+### EasyTier-Pro/installer
+- 🔀 [#1 fix: satisfy clippy warnings](https://github.com/EasyTier-Pro/installer/pull/1)
+
 ### EasyTier/EasyTier
+- 🔀 [#2381 perf: reduce packet buffer slicing churn](https://github.com/EasyTier/EasyTier/pull/2381)
+- 🔀 [#2397 bench: add Criterion TX throughput benchmark](https://github.com/EasyTier/EasyTier/pull/2397)
+- 🔀 [#2394 refactor(core): remove hotpath profiling](https://github.com/EasyTier/EasyTier/pull/2394)
 - 🔀 [#2384 perf(core): use quanta::Instant for hot-path timing](https://github.com/EasyTier/EasyTier/pull/2384)
 - 🔀 [#2380 feat: add optional hotpath profiling support](https://github.com/EasyTier/EasyTier/pull/2380)
-- 🔀 [#2308 fix(faketcp): handle closed tun reader without panic](https://github.com/EasyTier/EasyTier/pull/2308)
-- 🔀 [#2360 fix: clarify config parse errors](https://github.com/EasyTier/EasyTier/pull/2360)
-- 🔀 [#2279 feat: add Docker healthcheck](https://github.com/EasyTier/EasyTier/pull/2279)
 
 ### zdyxry/tokui
 - 🔀 [#9 fix: close preview with q without quitting](https://github.com/zdyxry/tokui/pull/9)
@@ -59,9 +62,4 @@ Welcome to [my blog](https://fuis.top)
 - 🔀 [#4 fix: support riscv64gc bindgen target](https://github.com/EasyTier/kcp-sys/pull/4)
 - 🔀 [#3 Update kcp to 2.0.0 and expose new APIs](https://github.com/EasyTier/kcp-sys/pull/3)
 - 🔀 [#2 Add support for cross-compilation using cargo-zigbuild](https://github.com/EasyTier/kcp-sys/pull/2)
-
-### fanyang89/gwp-asan
-- 🔀 [#4 Enable standalone GWP-ASan unit tests](https://github.com/fanyang89/gwp-asan/pull/4)
-- 🔀 [#3 Track upstream LLVM GWP-ASan updates](https://github.com/fanyang89/gwp-asan/pull/3)
-- 🔀 [#2 Add CI workflows](https://github.com/fanyang89/gwp-asan/pull/2)
 <!--END_SECTION:activity-->

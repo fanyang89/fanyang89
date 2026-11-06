@@ -2,7 +2,7 @@
 
 My vision is to build robust, efficient software.
 
-At [SmartX](https://www.smartx.com/global), I work on consensus and metadata in [ZBS](https://www.smartx.com/global/smtx-os) and maintain a ZooKeeper fork.
+At [SmartX](https://www.smartx.com/global), I work on Raft consensus, metadata, and storage system observability in [ZBS](https://www.smartx.com/global/smtx-os). I also maintain a ZooKeeper fork.
 
 Outside of work, I build libraries, self-hosted systems, and tools that make development easier. Most of my code is in C++, Rust, and Zig, with a focus on distributed systems and storage.
 

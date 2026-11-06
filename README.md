@@ -10,10 +10,11 @@ At [SmartX](https://www.smartx.com/global), I maintain the consensus and metadat
 
 | Project | What it does |
 | --- | --- |
-| [raftz](https://github.com/fanyang89/raftz) | An embeddable Raft consensus library for Zig, with durable WAL, snapshots, and gRPC transport. |
-| [raftpp](https://github.com/fanyang89/raftpp) | A C++17 Raft implementation with joint consensus, linearizable reads, persistence, and pluggable transport. |
+| [raftz](https://github.com/fanyang89/raftz) | My primary focus: an embeddable Raft consensus library for Zig, with durable WAL, snapshots, and gRPC transport. |
 | [grpc-lite](https://github.com/fanyang89/grpc-lite) | A lightweight, streaming-first gRPC runtime for Zig, with C and C++ APIs and bounded backpressure. |
 | [kcp-rs](https://github.com/fanyang89/kcp-rs) | A pure Rust KCP implementation with a Sans-I/O core and optional runtime-independent async integration. |
+
+Earlier work: [raftpp](https://github.com/fanyang89/raftpp), my C++17 Raft implementation, is planned for archival as development focus shifts to raftz.
 
 ## Systems Experiments
 

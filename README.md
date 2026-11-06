@@ -25,6 +25,7 @@ At [SmartX](https://www.smartx.com/global), I maintain the consensus and metadat
 | Project | What it does |
 | --- | --- |
 | [qtr](https://github.com/fanyang89/qtr) | QEMU/libvirt virtual machine management with declarative configuration, a CLI, a Web UI, and a REST API. |
+| [mini-harbor](https://github.com/fanyang89/mini-harbor) | A self-hosted container image registry. |
 | [plocate-server](https://github.com/fanyang89/plocate-server) | Filename and path search over large file trees, with a plocate index, Web UI, REST API, and MCP tools. |
 | [grep-nest](https://github.com/fanyang89/grep-nest) | Code search backed by OpenGrok, accessible through a focused Web UI, REST API, and MCP tools. |
 

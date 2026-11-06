@@ -1,5 +1,7 @@
 # Hi, I'm Fan Yang 👋
 
+My vision is to build robust, efficient software.
+
 I'm a software engineer working on distributed systems, consensus, storage, and infrastructure tooling, primarily in C++, Rust, and Zig.
 
 At [SmartX](https://www.smartx.com/global), I maintain the consensus and metadata modules of [ZBS](https://www.smartx.com/global/smtx-os) and a ZooKeeper fork. My personal projects explore the same foundations, alongside self-hosted services and practical developer tools.

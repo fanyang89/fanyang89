@@ -6,14 +6,6 @@ At [SmartX](https://www.smartx.com/global), I maintain the consensus and metadat
 
 [Blog](https://fuis.top)
 
-## Self-hosted Systems
-
-| Project | What it does |
-| --- | --- |
-| [qtr](https://github.com/fanyang89/qtr) | QEMU/libvirt virtual machine management with declarative configuration, a CLI, a Web UI, and a REST API. |
-| [grep-nest](https://github.com/fanyang89/grep-nest) | Code search backed by OpenGrok, accessible through a focused Web UI, REST API, and MCP tools. |
-| [plocate-server](https://github.com/fanyang89/plocate-server) | Filename and path search over large file trees, with a plocate index, Web UI, REST API, and MCP tools. |
-
 ## Libraries
 
 | Project | What it does |
@@ -27,6 +19,14 @@ At [SmartX](https://www.smartx.com/global), I maintain the consensus and metadat
 
 - [zookeeper-zig](https://github.com/fanyang89/zookeeper-zig) — A native Zig implementation of ZooKeeper, including protocol codecs, clients, and quorum-server work.
 - [Zettide](https://github.com/fanyang89/zettide) — Experimental single-node block storage for VM disks, with a Catalog/Volume engine and local multi-disk protection.
+
+## Self-hosted Systems
+
+| Project | What it does |
+| --- | --- |
+| [qtr](https://github.com/fanyang89/qtr) | QEMU/libvirt virtual machine management with declarative configuration, a CLI, a Web UI, and a REST API. |
+| [plocate-server](https://github.com/fanyang89/plocate-server) | Filename and path search over large file trees, with a plocate index, Web UI, REST API, and MCP tools. |
+| [grep-nest](https://github.com/fanyang89/grep-nest) | Code search backed by OpenGrok, accessible through a focused Web UI, REST API, and MCP tools. |
 
 ## Developer Tools
 
@@ -44,7 +44,9 @@ Selected merged contributions:
 - **kcp-sys** — [KCP 2.0 API updates](https://github.com/EasyTier/kcp-sys/pull/3) and [RISC-V bindgen support](https://github.com/EasyTier/kcp-sys/pull/4).
 
 <details>
-<summary>Recent merged upstream pull requests · updated weekly</summary>
+<summary>Recently merged upstream pull requests · updated every January and July</summary>
+
+Selected from the past six months, ordered by merge date (newest first).
 
 <!--START_SECTION:activity-->
 ### arma-tools/lzokay-native-rs
@@ -56,7 +58,6 @@ Selected merged contributions:
 
 ### bytedance/comfyui-lumi-batcher
 - 🔀 [#95 feat: 任务列表支持列宽拖拽调整，任务名称列更宽并始终显示完整 tooltip](https://github.com/bytedance/comfyui-lumi-batcher/pull/95)
-- 🔀 [#91 fix: handle boolean param values in prompt updates](https://github.com/bytedance/comfyui-lumi-batcher/pull/91)
 
 ### EasyTier-Pro/installer
 - 🔀 [#1 fix: satisfy clippy warnings](https://github.com/EasyTier-Pro/installer/pull/1)

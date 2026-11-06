@@ -2,12 +2,7 @@ name: Update README
 
 on:
   schedule:
-    - cron: '17 3 * * 1'
-  push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/update-readme.yml
+    - cron: '17 3 1 1,7 *'
   workflow_dispatch:
 
 permissions:
@@ -37,8 +32,13 @@ jobs:
             const maxPullRequestsPerRepo = 2
 
             const query = `
-              query RecentMergedPullRequests($searchQuery: String!) {
-                search(query: $searchQuery, type: ISSUE, first: 100) {
+              query RecentMergedPullRequests($searchQuery: String!, $cursor: String) {
+                search(query: $searchQuery, type: ISSUE, first: 100, after: $cursor) {
+                  issueCount
+                  pageInfo {
+                    hasNextPage
+                    endCursor
+                  }
                   nodes {
                     ... on PullRequest {
                       title
@@ -55,11 +55,22 @@ jobs:
               }
             `
 
-            const response = await github.graphql(query, {
-              searchQuery: `author:${username} -user:${username} is:public is:pr is:merged sort:updated-desc`,
-            })
+            const since = new Date()
+            since.setUTCDate(1)
+            since.setUTCMonth(since.getUTCMonth() - 6)
+            const searchQuery = `author:${username} -user:${username} is:public is:pr is:merged merged:>=${since.toISOString().slice(0, 10)}`
+            const nodes = []
+            let cursor = null
+            do {
+              const response = await github.graphql(query, { searchQuery, cursor })
+              if (response.search.issueCount > 1000) {
+                throw new Error('Search exceeds GitHub’s 1,000-result limit; narrow the merge-date window')
+              }
+              nodes.push(...response.search.nodes)
+              cursor = response.search.pageInfo.hasNextPage ? response.search.pageInfo.endCursor : null
+            } while (cursor)
 
-            const pullRequests = response.search.nodes
+            const pullRequests = nodes
               .filter((pr) => pr && pr.mergedAt && pr.repository && !pr.repository.isPrivate
                 && pr.repository.nameWithOwner.split('/')[0].toLowerCase() !== username.toLowerCase())
               .sort((left, right) => new Date(right.mergedAt) - new Date(left.mergedAt))
@@ -93,7 +104,7 @@ jobs:
                     return `### ${repo}\n${lines}`
                   })
                   .join('\n\n')
-              : '- No merged upstream pull requests found.'
+              : '- No upstream pull requests merged in the past six months.'
 
             const readme = fs.readFileSync(readmePath, 'utf8')
             const startIndex = readme.indexOf(startMarker)

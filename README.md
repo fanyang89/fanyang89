@@ -1,65 +1,75 @@
-### Hi there 👋
+# Hi, I'm Fan Yang 👋
 
-I'm a software engineer focused on consensus
+I'm a software engineer working on distributed systems, consensus, storage, and infrastructure tooling, primarily in C++, Rust, and Zig.
 
-- Maintaining [ZBS](https://www.smartx.com/global/smtx-os) consensus/metadata modules
-- Maintaining ZooKeeper fork at [SmartX](https://www.smartx.com/global)
+At [SmartX](https://www.smartx.com/global), I maintain the consensus and metadata modules of [ZBS](https://www.smartx.com/global/smtx-os) and a ZooKeeper fork. My personal projects explore the same foundations, alongside self-hosted services and practical developer tools.
 
-Welcome to [my blog](https://fuis.top)
+[Blog](https://fuis.top)
 
-[![GitHub stats](https://github-readme-stats-nine-zeta-80.vercel.app/api?username=fanyang89)](https://github.com/anuraghazra/github-readme-stats)
+## Self-hosted Systems
 
-## Recent Merged Pull Requests
+| Project | What it does |
+| --- | --- |
+| [qtr](https://github.com/fanyang89/qtr) | QEMU/libvirt virtual machine management with declarative configuration, a CLI, a Web UI, and a REST API. |
+| [grep-nest](https://github.com/fanyang89/grep-nest) | Code search backed by OpenGrok, accessible through a focused Web UI, REST API, and MCP tools. |
+| [plocate-server](https://github.com/fanyang89/plocate-server) | Filename and path search over large file trees, with a plocate index, Web UI, REST API, and MCP tools. |
+
+## Libraries
+
+| Project | What it does |
+| --- | --- |
+| [raftz](https://github.com/fanyang89/raftz) | An embeddable Raft consensus library for Zig, with durable WAL, snapshots, and gRPC transport. |
+| [raftpp](https://github.com/fanyang89/raftpp) | A C++17 Raft implementation with joint consensus, linearizable reads, persistence, and pluggable transport. |
+| [grpc-lite](https://github.com/fanyang89/grpc-lite) | A lightweight, streaming-first gRPC runtime for Zig, with C and C++ APIs and bounded backpressure. |
+| [kcp-rs](https://github.com/fanyang89/kcp-rs) | A pure Rust KCP implementation with a Sans-I/O core and optional runtime-independent async integration. |
+
+## Systems Experiments
+
+- [zookeeper-zig](https://github.com/fanyang89/zookeeper-zig) — A native Zig implementation of ZooKeeper, including protocol codecs, clients, and quorum-server work.
+- [Zettide](https://github.com/fanyang89/zettide) — Experimental single-node block storage for VM disks, with a Catalog/Volume engine and local multi-disk protection.
+
+## Developer Tools
+
+- [bpftrace-formatter](https://github.com/fanyang89/bpftrace-formatter) — Formatting and language tooling for bpftrace.
+- [make-pace](https://github.com/fanyang89/make-pace) — Resource-aware parallel builds.
+- [git-repo-stash](https://github.com/fanyang89/git-repo-stash) — Discover local Git repositories and back up committed data to Gitea.
+
+## Upstream Contributions
+
+Selected merged contributions:
+
+- **EasyTier** — Networking, performance, CLI, and cross-platform improvements, including [packet receive fast paths](https://github.com/EasyTier/EasyTier/pull/2426), [memory reclamation](https://github.com/EasyTier/EasyTier/pull/2428), and [Windows interface caching](https://github.com/EasyTier/EasyTier/pull/2744).
+- **lzokay-native-rs** — [Bounded decompression APIs](https://github.com/arma-tools/lzokay-native-rs/pull/2).
+- **chdb-go** — [Fix Parquet row handling at the EOF boundary](https://github.com/chdb-io/chdb-go/pull/34).
+- **kcp-sys** — [KCP 2.0 API updates](https://github.com/EasyTier/kcp-sys/pull/3) and [RISC-V bindgen support](https://github.com/EasyTier/kcp-sys/pull/4).
+
+<details>
+<summary>Recent merged upstream pull requests · updated weekly</summary>
 
 <!--START_SECTION:activity-->
+### arma-tools/lzokay-native-rs
+- 🔀 [#2 Add bounded decompression APIs](https://github.com/arma-tools/lzokay-native-rs/pull/2)
+
+### EasyTier/EasyTier
+- 🔀 [#2744 perf(common): cache interface snapshots on the Windows bind path](https://github.com/EasyTier/EasyTier/pull/2744)
+- 🔀 [#2743 fix(proto): set PROTOC_INCLUDE when sourcing protoc on Windows](https://github.com/EasyTier/EasyTier/pull/2743)
+
+### bytedance/comfyui-lumi-batcher
+- 🔀 [#95 feat: 任务列表支持列宽拖拽调整，任务名称列更宽并始终显示完整 tooltip](https://github.com/bytedance/comfyui-lumi-batcher/pull/95)
+- 🔀 [#91 fix: handle boolean param values in prompt updates](https://github.com/bytedance/comfyui-lumi-batcher/pull/91)
+
 ### EasyTier-Pro/installer
 - 🔀 [#1 fix: satisfy clippy warnings](https://github.com/EasyTier-Pro/installer/pull/1)
 
-### EasyTier/EasyTier
-- 🔀 [#2381 perf: reduce packet buffer slicing churn](https://github.com/EasyTier/EasyTier/pull/2381)
-- 🔀 [#2397 bench: add Criterion TX throughput benchmark](https://github.com/EasyTier/EasyTier/pull/2397)
-- 🔀 [#2394 refactor(core): remove hotpath profiling](https://github.com/EasyTier/EasyTier/pull/2394)
-- 🔀 [#2384 perf(core): use quanta::Instant for hot-path timing](https://github.com/EasyTier/EasyTier/pull/2384)
-- 🔀 [#2380 feat: add optional hotpath profiling support](https://github.com/EasyTier/EasyTier/pull/2380)
-
 ### zdyxry/tokui
 - 🔀 [#9 fix: close preview with q without quitting](https://github.com/zdyxry/tokui/pull/9)
-
-### fanyang89/nano-vllm-rs
-- 🔀 [#4 Add OpenAI-compatible API server](https://github.com/fanyang89/nano-vllm-rs/pull/4)
-- 🔀 [#3 Fix chat template detection](https://github.com/fanyang89/nano-vllm-rs/pull/3)
-- 🔀 [#2 Improve ROCm inference stability and benchmarking workflow](https://github.com/fanyang89/nano-vllm-rs/pull/2)
-- 🔀 [#1 Migrate to Burn runtime, improve ROCm workflow, and add benchmarking](https://github.com/fanyang89/nano-vllm-rs/pull/1)
-
-### EasyTier/easytier.github.io
-- 🔀 [#294 chore(deps): consolidate dependabot updates](https://github.com/EasyTier/easytier.github.io/pull/294)
-- 🔀 [#261 docs: update windows service uninstall guide](https://github.com/EasyTier/easytier.github.io/pull/261)
-- 🔀 [#288 docs(config): add EasyTier Assistant link](https://github.com/EasyTier/easytier.github.io/pull/288)
-- 🔀 [#281 docs(installation): add compose config file example](https://github.com/EasyTier/easytier.github.io/pull/281)
-- 🔀 [#260 docs(installation): refresh Docker Compose example](https://github.com/EasyTier/easytier.github.io/pull/260)
-
-### fanyang89/raftpp
-- 🔀 [#69 fix: support custom raftor storage](https://github.com/fanyang89/raftpp/pull/69)
-- 🔀 [#68 feat: persist raftor peer addresses](https://github.com/fanyang89/raftpp/pull/68)
-- 🔀 [#67 fix: persist and restore raftor snapshots](https://github.com/fanyang89/raftpp/pull/67)
-- 🔀 [#66 feat: add end-to-end entry checksum validation](https://github.com/fanyang89/raftpp/pull/66)
-- 🔀 [#65 fix: stabilize raftor logging and single-node startup](https://github.com/fanyang89/raftpp/pull/65)
-
-### fanyang89/grpc-lite
-- 🔀 [#1 Replace upb with struct_proto26](https://github.com/fanyang89/grpc-lite/pull/1)
-
-### fanyang89/bpftrace-formatter
-- 🔀 [#40 Rewrite btfmt in Rust with tree-sitter](https://github.com/fanyang89/bpftrace-formatter/pull/40)
-- 🔀 [#39 refactor: improve architecture and code maintainability](https://github.com/fanyang89/bpftrace-formatter/pull/39)
-- 🔀 [#38 Refactor: improve code maintainability and reduce duplication](https://github.com/fanyang89/bpftrace-formatter/pull/38)
-- 🔀 [#37 Performance optimizations and comprehensive formatting improvements](https://github.com/fanyang89/bpftrace-formatter/pull/37)
-- 🔀 [#31 ⚡ Bolt: indentation caching](https://github.com/fanyang89/bpftrace-formatter/pull/31)
-
-### chdb-io/chdb-go
-- 🔀 [#34 fix parquet rows panic on EOF-with-rows boundary](https://github.com/chdb-io/chdb-go/pull/34)
-
-### EasyTier/kcp-sys
-- 🔀 [#4 fix: support riscv64gc bindgen target](https://github.com/EasyTier/kcp-sys/pull/4)
-- 🔀 [#3 Update kcp to 2.0.0 and expose new APIs](https://github.com/EasyTier/kcp-sys/pull/3)
-- 🔀 [#2 Add support for cross-compilation using cargo-zigbuild](https://github.com/EasyTier/kcp-sys/pull/2)
 <!--END_SECTION:activity-->
+
+</details>
+
+<details>
+<summary>GitHub stats</summary>
+
+[![GitHub stats](https://github-readme-stats-nine-zeta-80.vercel.app/api?username=fanyang89)](https://github.com/anuraghazra/github-readme-stats)
+
+</details>

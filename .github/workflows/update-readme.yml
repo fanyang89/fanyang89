@@ -1,11 +1,13 @@
 name: Update README
 
 on:
+  schedule:
+    - cron: '17 3 * * 1'
   push:
     branches:
       - main
-    paths-ignore:
-      - README.md
+    paths:
+      - .github/workflows/update-readme.yml
   workflow_dispatch:
 
 permissions:
@@ -13,7 +15,7 @@ permissions:
 
 jobs:
   activity:
-    name: Update README with recent merged pull requests
+    name: Update README with recent merged upstream pull requests
     runs-on: ubuntu-latest
 
     steps:
@@ -31,8 +33,8 @@ jobs:
             const readmePath = 'README.md'
             const startMarker = '<!--START_SECTION:activity-->'
             const endMarker = '<!--END_SECTION:activity-->'
-            const maxRepos = 10
-            const maxPullRequestsPerRepo = 5
+            const maxRepos = 5
+            const maxPullRequestsPerRepo = 2
 
             const query = `
               query RecentMergedPullRequests($searchQuery: String!) {
@@ -54,11 +56,12 @@ jobs:
             `
 
             const response = await github.graphql(query, {
-              searchQuery: `author:${username} is:pr is:merged sort:updated-desc`,
+              searchQuery: `author:${username} -user:${username} is:public is:pr is:merged sort:updated-desc`,
             })
 
             const pullRequests = response.search.nodes
-              .filter((pr) => pr && pr.mergedAt && pr.repository && !pr.repository.isPrivate)
+              .filter((pr) => pr && pr.mergedAt && pr.repository && !pr.repository.isPrivate
+                && pr.repository.nameWithOwner.split('/')[0].toLowerCase() !== username.toLowerCase())
               .sort((left, right) => new Date(right.mergedAt) - new Date(left.mergedAt))
 
             const escapeTitle = (title) => title.replace(/[\\\[\]]/g, '\\$&')
@@ -90,7 +93,7 @@ jobs:
                     return `### ${repo}\n${lines}`
                   })
                   .join('\n\n')
-              : '- No merged pull requests found.'
+              : '- No merged upstream pull requests found.'
 
             const readme = fs.readFileSync(readmePath, 'utf8')
             const startIndex = readme.indexOf(startMarker)

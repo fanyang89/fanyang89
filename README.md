@@ -46,7 +46,7 @@ Selected merged contributions:
 - **kcp-sys** — [KCP 2.0 API updates](https://github.com/EasyTier/kcp-sys/pull/3) and [RISC-V bindgen support](https://github.com/EasyTier/kcp-sys/pull/4).
 
 <details>
-<summary>Recently merged upstream pull requests · updated every January and July</summary>
+<summary>Recently merged upstream pull requests</summary>
 
 Selected from the past six months, ordered by merge date (newest first).
 
